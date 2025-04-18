@@ -27,3 +27,28 @@ let promise = new Promise(function (resolve, reject) {
 - `Fulfilled`: `resolve()` was called.
 
 - `Rejected`: `reject()` was called.
+
+# About res.txt and .json()
+
+| Feature        | .text()                                                    | .json()                                                          |
+| -------------- | ---------------------------------------------------------- | ---------------------------------------------------------------- |
+| Returns        | A Promise that resolves to a string                        | A Promise that resolves to a JavaScript object                   |
+| Use Case       | When you want to read plain text like .txt, .html, or XML. | When you're fetching data from an API that returns JSON.         |
+| Parses         | Just raw text (no parsing).                                | Parses the response body into a JavaScript object automatically. |
+| Needs Parsing? | ❗ Yes, if it's JSON, you must parse manually.             | ✅ No extra parsing needed.                                      |
+
+## 🔍 Example of `.text()`
+
+```js
+fetch("example.txt")
+  .then((res) => res.text())
+  .then((data) => console.log(data)); // Outputs plain text from the file
+```
+
+## 🔍 Example of `.json()`
+
+```js
+fetch("https://api.example.com/data")
+  .then((res) => res.json())
+  .then((data) => console.log(data)); // Outputs parsed object
+```

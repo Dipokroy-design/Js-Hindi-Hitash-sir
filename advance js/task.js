@@ -15,3 +15,5 @@ userName
     console.error(`ERROR: ${error}`);
   });
 // you can also chaining the `then` with the flow 
+// you can also use finnaly after catch
+// have to about .json() and res.txt
